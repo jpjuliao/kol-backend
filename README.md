@@ -60,9 +60,7 @@ Get the authenticated user's profile.
 * `200 OK` with user profile data
 * `401 Unauthorized` if not authenticated
 
-
-
-## Backend Features (FastAPI):
+## Backend Features (FastAPI)
 
 Login endpoint (/auth/login) - Authenticates users with email/password
 User profile endpoint (/auth/me) - Gets current user info
@@ -71,7 +69,7 @@ Protected route example (/protected) - Demonstrates JWT authentication
 JWT token verification - Middleware for protecting routes
 CORS support - For frontend integration
 
-## Frontend Features:
+## Frontend Features
 
 Clean login interface - Modern, responsive design
 User dashboard - Shows user information after login
