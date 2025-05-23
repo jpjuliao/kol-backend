@@ -370,3 +370,4 @@ class TestAuthValidation:
 
 if __name__ == "__main__":
     pytest.main(["-v", "tests/test_auth.py"])
+    

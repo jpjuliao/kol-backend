@@ -9,11 +9,14 @@ import os
 from typing import Optional
 import jwt
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
-# Environment variables (set these in your .env file)
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_ANON_KEY")
-JWT_SECRET = os.getenv("SUPABASE_JWT_SECRET")
+load_dotenv(dotenv_path=".env")
+
+# Use dummy values if env vars are missing (for testing)
+SUPABASE_URL = os.getenv("SUPABASE_URL", "https://dummy.supabase.co")
+SUPABASE_KEY = os.getenv("SUPABASE_ANON_KEY", "dummy-key")
+JWT_SECRET = os.getenv("SUPABASE_JWT_SECRET", "dummy-secret")
 
 # Initialize Supabase client
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
