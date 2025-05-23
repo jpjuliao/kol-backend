@@ -4,6 +4,17 @@ An API application for User authentication (login only with email and password)
 
 ## Infrastructure
 
+```mermaid
+flowchart LR
+    FastAPI["FastAPI (API Server)"]
+    SupabaseAuth["Supabase Auth (Authentication & JWT)"]
+    SupabaseDB["Supabase PostgreSQL (Database)"]
+
+    FastAPI -- Connects to --> SupabaseAuth
+    FastAPI -- Connects to --> SupabaseDB
+    SupabaseAuth -- Manages Auth for --> SupabaseDB
+```
+
 Infrastructure refers to the foundational technologies and services that support the application.  
 For this project, the infrastructure includes:
 
@@ -12,6 +23,20 @@ For this project, the infrastructure includes:
 * **Supabase Database** – PostgreSQL database for storing application data.
 
 ## Architecture
+
+```mermaid
+flowchart TD
+    Client["Client (Frontend)"]
+    FastAPI[FastAPI API Server]
+    SupabaseAuth[Supabase Auth]
+    SupabaseDB[Supabase PostgreSQL Database]
+
+    Client -- HTTP Requests --> FastAPI
+    FastAPI -- REST API --> SupabaseAuth
+    FastAPI -- Direct Queries --> SupabaseDB
+    SupabaseAuth -- Issues JWT --> Client
+    FastAPI -- Uses JWT --> SupabaseAuth
+```
 
 Architecture describes the overall design and structure of the application, including how components interact and how data flows.  
 For this project:
